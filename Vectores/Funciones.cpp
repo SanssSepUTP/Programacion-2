@@ -6,7 +6,7 @@ void mostrar(int n, int[]); // Muestra los datos ingresados.
 int suma(int n, int[]); //Realiza recursivamente la suma de todos los elementos del vector.
 int resta(int n, int[]); //Realiza recursivamente la resta de todos los elementos del vector.
 int multiplicacion(int n, int[]); //Realiza recursivamente la multiplicacion de todos los elementos del vector.
-void datos_del_promedio(float p, int n, int[]); //Calcula cuantos elementos estan por debajo, son iguales o por encima del promedio calculado.
+void datos_del_promedio(float p, int n, int[]); //Calcula cuantos elementos estan por debajo, son iguales o estan por encima del promedio calculado.
 int main ()
 {
     setlocale(LC_CTYPE, "Spanish"); //Llamado a la biblioteca <clocale>.
