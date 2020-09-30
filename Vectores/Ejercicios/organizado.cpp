@@ -1,6 +1,6 @@
 /* Este programa crea un vector de 10 elementos y verifica si esta ordenado de menor a mayor.
 Visual Studio Code 1.42.2 con Wsl Version 2 distro Debian.
-Santiago Sepúlveda
+Santiago Sepúlveda.
 30/09/20*/
 #include <iostream>
 using namespace std;
