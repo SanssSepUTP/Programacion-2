@@ -1,7 +1,7 @@
 /* Este programa pide dos vectores enteros de 4 elementos 
 y crea un tercer vector con el resultado de la suma de los dos anteriores.
 Visual Studio Code 1.42.2 con Wsl Version 2 distro Debian.
-Santiago Sepúlveda
+Santiago Sepúlveda.
 30/09/20*/
 #include <iostream>
 using namespace std;
