@@ -1,7 +1,12 @@
+/*Crear una matriz de 4 filas y 5 columnas carga por columna y la imprime.
+Visual Studio Code 1.42.2 con Wsl Version 2 distro Debian.
+Santiago Sepúlveda.
+1/10/20*/
+
 #include <iostream>
 using namespace std;
-void llenar(int f, int c, int a[][100]);
-void mostrar(int f, int c, int a[][100]);
+void llenar(int f, int c, int a[][100]);//llena la matriz comenzando por las columnas.
+void mostrar(int f, int c, int a[][100]);//Muestra la matriz.
 int main()
 {
     int f= 4,c= 5;
