@@ -60,7 +60,7 @@ void intercambiar(int c, int a[][100])
         cout<<endl;
         i1++;
 }
-void pro()
+void pro()// Simula carga de procesamiento.
 {
   cout << "Procesando\n";
   for (int i=3; i>0; --i) {
