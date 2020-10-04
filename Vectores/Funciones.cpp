@@ -1,12 +1,35 @@
+/*
+ * @Author: Santiago Sepúlveda
+ * @Date:   2020-10-02 11:31:15
+ * @Last Modified by:   Santiago Sepúlveda
+ * @Last Modified time: 2020-10-03 14:49:46
+ */
 #include <iostream>
 #include <clocale> //Esta biblioteca permite utilizar caracteres propios del español.
+#include <math.h>
 using namespace std;
-void leer(int n, int[]); //Llena el vector.
-void mostrar(int n, int[]); // Muestra los datos ingresados.
-int suma(int n, int[]); //Realiza recursivamente la suma de todos los elementos del vector.
-int resta(int n, int[]); //Realiza recursivamente la resta de todos los elementos del vector.
-int multiplicacion(int n, int[]); //Realiza recursivamente la multiplicacion de todos los elementos del vector.
-void datos_del_promedio(float p, int n, int[]); //Calcula cuantos elementos estan por debajo, son iguales o estan por encima del promedio calculado.
+//Llena un vector de n elementos.
+void leer(int n, int[]); 
+// Muestra los datos ingresados de un vector de n elementos.
+void mostrar(int n, int[]); 
+//Realiza recursivamente la suma de todos los elementos del vector de n elementos.
+int suma(int n, int[]); 
+//Realiza recursivamente la resta de todos los elementos del vector de n elementos.
+int resta(int n, int[]); 
+//Realiza recursivamente la multiplicacion de todos los elementos del vector de n elementos.
+int multiplicacion(int n, int[]); 
+//Calcula cuantos elementos estan por debajo, son iguales o estan por encima de p promedio calculado en un vector de n elementos.
+void datos_del_promedio(float p, int n, int[]); 
+//Verifica si un numero n es primo.
+bool primo(int n);
+//Calcula el numero de digitos de un numero x.
+int n_digitos(int x);
+//llena un vector de n elementos con cada digito de un numero x con n digitos.
+void asignar_n(int x,int n, int a[]);
+// Regresa el factorial de un numero n.
+//(Solo logre que mostrara correctamente hasta el factorial n=21 por limites en el tamaño de las variables).
+//El tamaño maximo de una variable de tipo unsigned long long int es de 18,446,744,073,709,551,615.
+unsigned long long int factorial(int n); 
 int main ()
 {
     setlocale(LC_CTYPE, "Spanish"); //Llamado a la biblioteca <clocale>.
@@ -16,6 +39,7 @@ int main ()
     cin >> t;
     int vec[t];
     leer(t,vec);
+    cout << "\nEstos son los datos ingresados:\n";
     mostrar(t,vec);
     sum=suma(t,vec);
     rest=resta(t,vec);
@@ -30,21 +54,20 @@ int main ()
 }
 void leer(int n, int a[])
 {
-    for (int i=0;i<n;i++) //Llena el vector.
+    for (int i=0;i<n;i++) 
     {
-        cout << "Agregue la nota del usuario " << endl << i+1 << ") ";
+        cout << "Agregue el elemento." << endl << i+1 << ") ";
         cin >> a[i];
     }
 }
 void mostrar(int n, int a[])
 {
-    cout << "\nEstos son los datos ingresados:\n";
-    for (int i=0; i<n; i++)// Muestra los datos ingresados.
+    for (int i=0; i<n; i++)
     {
-        cout <<"Persona " << i+1 << ") " << a[i] <<endl;
+        cout <<"Dato " << i+1 << ") " << a[i] <<endl;
     }
 }
-int suma(int n, int a[]) //Realiza recursivamente la suma de todos los elementos del vector.
+int suma(int n, int a[]) 
 {
     int sum = 0;
     for(int i=0; i<n; i++)
@@ -53,7 +76,7 @@ int suma(int n, int a[]) //Realiza recursivamente la suma de todos los elementos
     }
     return sum;
 }
-int resta(int n, int a[]) //Realiza recursivamente la resta de todos los elementos del vector.
+int resta(int n, int a[]) 
 {
     int rest = 0;
     for(int i=0; i<n; i++)
@@ -71,7 +94,7 @@ int multiplicacion(int n, int a[])
     }
     return mult;
 }
-void datos_del_promedio(float p, int n, int a[]) //Calcula cuantos elementos estan por debajo, son iguales o estan por encima del promedio calculado.
+void datos_del_promedio(float p, int n, int a[]) 
 {
     int debajo = 0,igual= 0, encima = 0;
     for(int i=0; i<n; i++)
@@ -89,5 +112,68 @@ void datos_del_promedio(float p, int n, int a[]) //Calcula cuantos elementos est
             encima++;
         }
     }
-    cout << "\nHay " << debajo << " elementos por debajo de el promedio \n"<< igual << " elementos iguales al promedio y \n" << encima << " elementos por encima del promedio.\n";
+    cout << "\nHay " << debajo << " elementos por debajo de el promedio \n";
+    cout << igual << " elementos iguales al promedio y \n" << encima << " elementos por encima del promedio.\n";
+}
+bool primo(int n)
+{
+    bool estado;
+    int a=0;
+    for(int i=1;i<(n+1);i++)
+    {
+        if(n%i==0)
+        {
+            a++;
+        }
+    }
+        if(a!=2)
+        {
+            estado = false;
+            
+        }
+        else
+        {
+            estado = true;
+        }
+        return estado;
+}
+int n_digitos(int x)
+{
+    int i=1;
+    while (x >= pow(10, i))
+    {
+        i++;
+    }
+    return i;
+}
+void asignar_n(int x,int n, int a[])
+{
+    int d = n;
+    for (int i=0; i<n; i++)
+    {
+        a[i] = x / pow(10, d-1);
+        x = x - (a[i] * (pow(10, d-1)));
+        --d;
+    }
+}
+unsigned long long int factorial(int n)
+{
+    unsigned long long int fac= 1;
+    
+    if (n < 0)
+    {
+        fac = 0;
+    }
+    else if(n == 0)
+    {
+        fac = 1;
+    }
+    else 
+    {
+        for(unsigned long long int i = 1; i <= n; i++)
+        {
+            fac =fac * i;
+        }
+    }
+    return fac;
 }
